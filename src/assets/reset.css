@@ -1,0 +1,138 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,
+h1,
+h3,
+h2,
+h4,
+h5,
+h6,
+p,
+dl,
+dd,
+ul,
+li,
+ol,
+td,
+form,
+input,
+fieldset,
+legend {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  font-size: 12px;
+  color: #333;
+}
+
+body {
+  font-size: 0.16rem;
+  font-family: "微软雅黑";
+  color: #666;
+}
+
+img {
+  vertical-align: top;
+  display: block;
+  border: none;
+}
+
+a,
+input {
+  outline: none;
+}
+
+em,
+i {
+  font-style: normal;
+}
+
+b,
+strong,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+.clear:after {
+  content: "";
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.border0 {
+  border: none;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+.adm-image-viewer-slides-inner > *{
+  margin-right: 0;
+}
+
+.adm-nav-bar{
+  height: 0.45rem;
+}
+.adm-dropdown-item-title{
+  padding: 0.12rem !important;
+  .adm-dropdown-item-title-text{
+    margin-right: 0.05rem;
+  }
+  .adm-dropdown-item-title-arrow{
+    font-size: 0.09rem;
+  }
+}
+
+.adm-list-item-content-arrow{
+  font-size: 0.19rem;
+}
+.adm-nav-bar-back-arrow{
+  font-size: 0.24rem;
+}
+
+.adm-popup-body{
+  a{
+    font-size: 0.12rem;
+  }
+  .adm-action-sheet-button-item{
+    padding: 0.16rem;
+  }
+}
+
+.adm-notice-bar{
+  height: 0.38rem;
+  padding: 0 0.13rem;
+}
+
+.adm-list-item-content-extra{
+  font-size: 0.12rem
+}
