@@ -7,8 +7,6 @@ defineOptions({
   name: "Layout",
   inheritAttrs: false,
 });
-
-
 </script>
 <style scoped>
 
