@@ -6,6 +6,12 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import VueDevTools from 'vite-plugin-vue-devtools'
 import mockDevServerPlugin from 'vite-plugin-mock-dev-server'
 
+
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }:ConfigEnv)=>{
   // mode: development
@@ -18,6 +24,13 @@ export default defineConfig(({ mode }:ConfigEnv)=>{
       VueDevTools(),
       // MOCK 服务
       env.VITE_MOCK_DEV_SERVER === "true" ? mockDevServerPlugin() : null,
+
+      AutoImport({
+        resolvers: [ElementPlusResolver()],
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()],
+      }),
     ],
     resolve: {
       alias: {
@@ -41,6 +54,15 @@ export default defineConfig(({ mode }:ConfigEnv)=>{
             path.replace(new RegExp("^" + env.VITE_APP_BASE_API), ""),
         },
       }
-    }
+    },
+    css: {
+      preprocessorOptions: {
+        // 这里可以配置sass的选项，例如全局变量、函数等
+        scss: {
+          javascriptEnabled: true,
+          additionalData: '@import "./src/styles/index.scss";',
+        },
+      },
+    },
   }
 })
