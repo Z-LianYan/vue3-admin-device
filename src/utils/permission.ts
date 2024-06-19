@@ -1,5 +1,8 @@
 import router from "@/router";
-// import { useUserStore, usePermissionStore } from "@/store";
+import { 
+  // useUserStore, 
+  usePermissionStore 
+} from "@/store";
 // import NProgress from "@/utils/nprogress";
 // import { RouteRecordRaw } from "vue-router";
 // import { TOKEN_KEY } from "@/enums/CacheEnum";
@@ -9,7 +12,14 @@ export function setupPermission() {
   const whiteList = ["/login"];
 
   router.beforeEach(async (to, from, next) => {
+    const permissionStore = usePermissionStore();
+    console.log('beforeEach----6666')
+    permissionStore.generateRoutes(["ADMIN"]).then((res:any)=>{
+      console.log('res===>>permissionStore',res);
+      // menu_list.value = res;
+    });
     next();
+    
     // NProgress.start();
     // const hasToken = localStorage.getItem(TOKEN_KEY);
     // if (hasToken) {

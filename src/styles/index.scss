@@ -1,77 +1,28 @@
-@import './variables.scss';
-@import './mixin.scss';
-@import './transition.scss';
-@import './reset.scss';
+@use "./reset";
 
-body {
-  height: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+.app-container {
+  padding: 10px;
 }
 
-label {
-  font-weight: 700;
+.search-container {
+  padding: 18px 0 0 10px;
+  margin-bottom: 10px;
+  background-color: var(--el-bg-color-overlay);
+  border: 1px solid var(--el-border-color-light);
+  border-radius: 4px;
+  box-shadow: var(--el-box-shadow-light);
 }
 
-html {
-  height: 100%;
-  box-sizing: border-box;
+.table-container > .el-card__header {
+  padding: calc(var(--el-card-padding) - 8px) var(--el-card-padding);
 }
 
-#app {
-  height: 100%;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
-a:focus,
-a:active {
-  outline: none;
-}
-
-a,
-a:focus,
-a:hover {
+.link-type,
+.link-type:focus {
+  color: #337ab7;
   cursor: pointer;
-  color: inherit;
-  text-decoration: none;
-}
 
-div:focus {
-  outline: none;
-}
-
-.clearfix {
-  &:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0;
+  &:hover {
+    color: rgb(32 160 255);
   }
 }
-
-// main-container global css
-.app-container {
-  padding: 20px;
-}
-
-
-.float-left{
-  float: left;
-}
-.float-right{
-  float: right;
-}
-
-
-// body .el-table th.gutter {//修复elementui window 系统出现的表头分割线不对齐 
-//   display: table-cell !important
-// }

@@ -6,6 +6,9 @@ export const defineMock = createDefineMock((mock) => {
   // console.log('import.url.>>>',mock)
   
   // 拼接url
-  mock.url = path.join((import.meta as any).env.VITE_APP_BASE_API, mock.url);
+  mock.url = path.join(
+    (import.meta as any).env.VITE_APP_BASE_API+"/api/v1/", 
+    mock.url
+  );
   console.log('mock.url',mock)
 });

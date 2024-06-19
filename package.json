@@ -11,10 +11,14 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
+    "@vueuse/core": "^10.10.0",
     "axios": "^1.6.8",
     "element-plus": "^2.7.3",
+    "nprogress": "^0.2.0",
     "pinia": "^2.1.7",
+    "unocss": "^0.61.0",
     "vue": "^3.4.21",
+    "vue-i18n": "9",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
@@ -33,5 +37,8 @@
     "vite-plugin-mock-dev-server": "^1.5.0",
     "vite-plugin-vue-devtools": "^7.0.25",
     "vue-tsc": "^2.0.11"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
