@@ -150,7 +150,7 @@ async function test(){
   .box{
     border: 1px solid blue;
     .p{
-      background: red;
+      background: red; 
     }
   }
 

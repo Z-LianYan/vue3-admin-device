@@ -18,9 +18,10 @@ import {
   dependencies,
   devDependencies,
 } from "./package.json";
+import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
+import { resolve } from "path";
 
-const pathSrc = path.resolve(__dirname, 'src')
-
+const pathSrc = resolve(__dirname, "src");
 /** 平台的名称、版本、运行所需的`node`版本、依赖、构建时间的类型提示 */
 const __APP_INFO__ = {
   pkg: { 
@@ -62,7 +63,8 @@ export default defineConfig(({ mode }:ConfigEnv)=>{
         // Auto import functions from Element Plus, e.g. ElMessage, ElMessageBox... (with style)
         // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
         resolvers: [
-          ElementPlusResolver()
+          // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
+          ElementPlusResolver(),
         ],
         // 是否在 vue 模板中自动导入
         vueTemplate: true,
@@ -79,17 +81,23 @@ export default defineConfig(({ mode }:ConfigEnv)=>{
         dts: false,
         // dts: "src/typings/components.d.ts",
       }),
+      createSvgIconsPlugin({
+        // 指定需要缓存的图标文件夹
+        iconDirs: [resolve(pathSrc, "assets/icons")],
+        // 指定symbolId格式
+        symbolId: "icon-[dir]-[name]",
+      }),
     ],
-    resolve: {
-      alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url))
-      }
-    },
     // resolve: {
     //   alias: {
-    //     "@": pathSrc,
-    //   },
+    //     '@': fileURLToPath(new URL('./src', import.meta.url))
+    //   }
     // },
+    resolve: {
+      alias: {
+        "@": pathSrc,
+      },
+    },
     server: {
       // 允许IP访问
       host: "0.0.0.0",

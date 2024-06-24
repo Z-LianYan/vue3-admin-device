@@ -1,4 +1,3 @@
-import './assets/reset.css'
 
 import { createApp } from 'vue'
 
@@ -6,6 +5,8 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import 'element-plus/theme-chalk/dark/css-vars.css'
 
+// 本地SVG图标
+import "virtual:svg-icons-register";
 
 import App from './App.vue'
 import router from './router'
@@ -13,6 +14,8 @@ import { setupPermission } from './utils/permission'
 import i18n from '@/lang/index'
 
 
+import "@/styles/index.scss";
+import "uno.css";
 
 const app = createApp(App)
 
