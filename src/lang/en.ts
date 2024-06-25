@@ -31,4 +31,24 @@ export default {
     sidebarLogo: "Sidebar Logo",
     watermark: "Watermark",
   },
+  // 登录页面国际化
+  login: {
+    username: "Username",
+    password: "Password",
+    login: "Login",
+    captchaCode: "Verify Code",
+    capsLock: "Caps Lock is On",
+    message: {
+      username: {
+        required: "Please enter Username",
+      },
+      password: {
+        required: "Please enter Password",
+        min: "The password can not be less than 6 digits",
+      },
+      captchaCode: {
+        required: "Please enter Verify Code",
+      },
+    },
+  },
 }

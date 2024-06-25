@@ -36,6 +36,7 @@ export const useSettingsStore = defineStore("setting", () => {
   watch(
     [theme, themeColor],
     ([newTheme, newThemeColor], [oldTheme, oldThemeColor]) => {
+      console.log('----theme',newTheme, newThemeColor,oldTheme, oldThemeColor)
       if (newTheme !== oldTheme) {
         if (newTheme === ThemeEnum.DARK) {
           document.documentElement.classList.add("dark");
