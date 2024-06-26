@@ -23,6 +23,7 @@ export const useUserStore = defineStore("user", () => {
     return new Promise<void>((resolve, reject) => {
       AuthAPI.login(loginData)
         .then((data) => {
+          console.log('data--login',data);
           const { tokenType, accessToken } = data;
           localStorage.setItem(TOKEN_KEY, tokenType + " " + accessToken); // Bearer eyJhbGciOiJIUzI1NiJ9.xxx.xxx
           resolve();
@@ -35,18 +36,19 @@ export const useUserStore = defineStore("user", () => {
 
   // 获取信息(用户昵称、头像、角色集合、权限集合)
   function getUserInfo() {
+    console.log('----getUserInfo')
     return new Promise<UserInfo>((resolve, reject) => {
       UserAPI.getInfo()
-        .then((data) => {
+        .then((data:any) => {
           if (!data) {
             reject("Verification failed, please Login again.");
             return;
           }
-          if (!data.roles || data.roles.length <= 0) {
+          if (!data.data.roles || data.data.roles.length <= 0) {
             reject("getUserInfo: roles must be a non-null array!");
             return;
           }
-          Object.assign(user.value, { ...data });
+          Object.assign(user.value, { ...data.data });
           resolve(data);
         })
         .catch((error) => {
