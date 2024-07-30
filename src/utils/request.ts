@@ -36,7 +36,7 @@ service.interceptors.response.use(
 
     const { code, data, msg } = response.data;
     if (code === ResultEnum.SUCCESS) {
-      return response.data;
+      return data;
     }
 
     ElMessage.error(msg || "系统出错");

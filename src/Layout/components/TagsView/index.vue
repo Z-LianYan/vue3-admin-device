@@ -15,12 +15,12 @@
         @contextmenu.prevent="openContentMenu(tag, $event)"
       >
         {{ translateRouteTitle(tag.title) }}
-        <i-ep-close
+        <!-- <i-ep-close
           class="close-icon"
           size="12px"
           v-if="!isAffix(tag)"
           @click.prevent.stop="closeSelectedTag(tag)"
-        />
+        /> -->
       </router-link>
     </el-scrollbar>
 

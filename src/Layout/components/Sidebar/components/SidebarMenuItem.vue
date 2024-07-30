@@ -15,7 +15,7 @@
         >
           <SidebarMenuItemTitle
             :icon="onlyOneChild.meta.icon || (item.meta && item.meta.icon)"
-            :title="onlyOneChild.meta.title"
+            :title="resolvePath(onlyOneChild.path)"
           />
         </el-menu-item>
       </AppLink>
@@ -27,7 +27,7 @@
         <SidebarMenuItemTitle
           v-if="item.meta"
           :icon="item.meta && item.meta.icon"
-          :title="item.meta.title+11"
+          :title="resolvePath(item.path)"
         />
       </template>
 
@@ -50,7 +50,7 @@ defineOptions({
 import path from "path-browserify";
 import { isExternal } from "@/utils/index";
 import { RouteRecordRaw } from "vue-router";
-
+const router = useRouter();
 const props = defineProps({
   /**
    * 路由(eg:user)123
@@ -72,6 +72,11 @@ const props = defineProps({
     default: false,
   },
 });
+
+function onclick(children,item){
+  console.log('123456789',children,item)
+  router.push(item.meta.url)
+}
 
 const onlyOneChild = ref(); // 临时变量，唯一子路由
 

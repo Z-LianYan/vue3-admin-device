@@ -204,7 +204,7 @@ function handleLogin() {
             },
             {}
           );
-
+          console.log('00----->>>888',redirect,otherQueryParams)
           router.push({ path: redirect, query: otherQueryParams });
         })
         .catch(() => {

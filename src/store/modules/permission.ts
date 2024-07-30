@@ -84,9 +84,8 @@ export const usePermissionStore = defineStore("permission", () => {
       // 接口获取所有路由
       MenuAPI.getRoutes()
         .then((data:any) => {
-          console.log('data====>>>',data);
           // 过滤有权限的动态路由
-          const accessedRoutes = filterAsyncRoutes(data.data, roles);
+          const accessedRoutes = filterAsyncRoutes(data, roles);
           setRoutes(accessedRoutes);
           resolve(accessedRoutes);
         })

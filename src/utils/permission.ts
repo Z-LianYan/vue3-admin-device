@@ -31,7 +31,6 @@ export function setupPermission() {
       } else {
         const userStore:any = useUserStore();
         const hasRoles = userStore.user.roles && userStore.user.roles.length > 0;
-        console.log('hasRoles===>>',hasRoles);
         if (hasRoles) {
           // 未匹配到任何路由，跳转404
           if (to.matched.length === 0) {
@@ -41,13 +40,9 @@ export function setupPermission() {
           }
         } else {
           const permissionStore:any = usePermissionStore();
-          console.log("999999")
           try {
-            console.log("888")
             const { roles } = await userStore.getUserInfo();
-            console.log('roles===>>',roles);
             const accessRoutes = await permissionStore.generateRoutes(["ADMIN"]);
-            console.log('accessRoutes=>>'),accessRoutes
             accessRoutes.forEach((route: RouteRecordRaw) => {
               router.addRoute(route);
             });
@@ -59,6 +54,7 @@ export function setupPermission() {
             NProgress.done();
           }
         }
+        NProgress.done();
       }
     } else {
       // 未登录可以访问白名单页面
@@ -72,6 +68,6 @@ export function setupPermission() {
   });
 
   router.afterEach(() => {
-    // NProgress.done();
+    NProgress.done();
   });
 }

@@ -2,16 +2,22 @@
   <section class="app-main">
     <router-view>
       <template #default="{ Component, route }">
-        <transition
+        <!-- <transition
           enter-active-class="animate__animated animate__fadeIn"
           mode="out-in"
-        >
+        > -->
           <keep-alive :include="cachedViews">
             <component :is="Component" :key="route.path" />
           </keep-alive>
-        </transition>
+        <!-- </transition> -->
       </template>
     </router-view>
+    <!-- <keep-alive :include="['Home','Home1']">
+      <component :is="Component" :key="route.path+Math.random()" />
+    </keep-alive> -->
+
+    <div>{{ JSON.stringify(cachedViews) }}</div>
+    
   </section>
 </template>
 
@@ -19,6 +25,7 @@
 import { useTagsViewStore } from "@/store";
 
 const cachedViews = computed(() => useTagsViewStore().cachedViews); // 缓存页面集合
+console.log('r')
 </script>
 
 <style lang="scss" scoped>

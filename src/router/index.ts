@@ -1,8 +1,13 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 
 // export const Layout = () => import("@/layout/index.vue");
-import Home from '@/views/Home.vue'
+import Home from '../views/Home.vue'
+import Home1 from '../views/Home1.vue'
 import Layout from '@/layout/index.vue'
+import Test from '../views/Test.vue'
+import Test1 from '@/views/Test1.vue'
+import Test2 from '@/views/Test2.vue'
+import Test3 from '@/views/Test3.vue'
 // 静态路由
 export const constantRoutes: RouteRecordRaw[] = [
   {
@@ -16,14 +21,71 @@ export const constantRoutes: RouteRecordRaw[] = [
     },
     children:[
       {
-        path: '/home',
+        path: 'home',
+        name: "Home",
         component: Home,
         meta: {
           title: "首页children",
           roles:['ADMIN'],
           alwaysShow: false,
+          keepAlive: true,
+          affix:true
         },
-      }
+        // redirect:"/home/test",
+        children: [
+          // {
+          //   path: 'test',
+          //   name: "Test",
+          //   component: Test,
+          //   meta: {
+          //     url: '/home/test',
+          //     title: "菜单二级",
+          //     icon: "",
+          //     hidden: false,
+          //     roles: ["ADMIN"],
+          //     keepAlive: true,
+          //   },
+          // },
+          // {
+          //   path: "test1",
+          //   component: Test1,
+          //   name: "Test1",
+          //   meta: {
+          //     url: '/home/test1',
+          //     title: "Test1",
+          //     icon: "",
+          //     hidden: false,
+          //     roles: ["ADMIN"],
+          //     keepAlive: true,
+          //   },
+          // }
+        ]
+      },
+      {
+        path: 'home1',
+        name: "Home1",
+        component: Home1,
+        meta: {
+          title: "home1",
+          roles:['ADMIN'],
+          alwaysShow: false,
+          keepAlive: true
+        },
+        children: []
+      },
+      {
+        path: "404",
+        name: "404",
+        component: () => import("@/views/error-page/404.vue"),
+        meta: { 
+          url: '/404',
+          title: "404",
+          roles:['ADMIN'],
+          alwaysShow: false,
+          hidden: false 
+        },
+      },
+      
     ]
   },
   // {

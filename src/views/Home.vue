@@ -27,7 +27,7 @@
     />
 
 
-  <p>语言：{{$t('test')}}</p>
+  <p>语言：{{$t('navbar.logout')}}</p>
   <h3>切换语言</h3>
   <el-button @click="onChangeLanguageZh">中文</el-button>
   <el-button @click="onChangeLanguageEn">英文</el-button>
@@ -36,8 +36,10 @@
 
 
   <p class="ptest">123</p>
+    <!-- <router-view/> -->
 
-  <div style="height: 100vh;"></div>
+  <!-- <div style="height: 100vh;"></div> -->
+  
 </template>
 <script setup lang="ts">
 // import { onMounted,reactive, ref, getCurrentInstance} from 'vue';
@@ -53,7 +55,6 @@ defineOptions({
   inheritAttrs: false,
 });
 const value2 = ref(new Date());
-
 const shortcuts = [
   {
     text: 'Today',
@@ -139,9 +140,10 @@ async function test(){
   // result = Object.assign(result,res.data);
   
 }
-// onMounted(() => {
-  test();
-// });
+onMounted(() => {
+  // test();
+  console.log('home--------->>>')
+});
 </script>
 <style scoped lang="scss">
   // @use "../styles/variables.scss" as *;
