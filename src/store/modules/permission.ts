@@ -5,7 +5,7 @@ import MenuAPI from "@/api/menu";
 import { RouteVO } from "@/api/menu/model";
 
 const modules = (import.meta as any).glob("../../views/**/**.vue");
-const Layout = () => import("@/layout/index.vue");
+const Layout = () => import("@/Layout/index.vue");
 
 /**
  * Use meta.role to determine if the current user has permission

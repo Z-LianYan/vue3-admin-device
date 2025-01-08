@@ -67,7 +67,7 @@ export default defineConfig(({ mode }:ConfigEnv)=>{
           ElementPlusResolver(),
         ],
         // 是否在 vue 模板中自动导入
-        vueTemplate: true,
+        vueTemplate: false,
         dts: path.resolve(pathSrc, 'typings', 'auto-imports.d.ts'),
       }),
       Components({

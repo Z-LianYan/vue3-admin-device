@@ -3,7 +3,7 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 // export const Layout = () => import("@/layout/index.vue");
 import Home from '../views/Home.vue'
 import Home1 from '../views/Home1.vue'
-import Layout from '@/layout/index.vue'
+import Layout from '@/Layout/index.vue'
 import Test from '../views/Test.vue'
 import Test1 from '@/views/Test1.vue'
 import Test2 from '@/views/Test2.vue'
